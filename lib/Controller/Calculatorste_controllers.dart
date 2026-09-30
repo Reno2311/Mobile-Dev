@@ -36,11 +36,7 @@ class CalculatorController extends GetxController {
   void bagi(double angka1, double angka2) {
     if (angka2 == 0) {
       hasilhitung.value = 0;
-      Get.snackbar(
-        "Hasilnya",
-        "0",
-        snackPosition: SnackPosition.BOTTOM,
-      );
+      Get.snackbar("Hasilnya", "0", snackPosition: SnackPosition.BOTTOM);
       return;
     }
 
@@ -51,5 +47,9 @@ class CalculatorController extends GetxController {
       hasilBagi.toString(),
       snackPosition: SnackPosition.BOTTOM,
     );
+  }
+
+  void reset() { 
+    hasilhitung.value = 0.0; 
   }
 }

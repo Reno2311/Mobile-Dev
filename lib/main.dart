@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_3/Routes.dart';
 import 'package:flutter_application_3/calculator_page.dart';
 import 'package:flutter_application_3/calculator_ste.dart';
 import 'package:flutter_application_3/login_page.dart';
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
    return GetMaterialApp(
-      home: KalkulatorPage(),
+      initialRoute: Routes.registration,
+      getPages: Routes.mypages,
     );
   }
 }
