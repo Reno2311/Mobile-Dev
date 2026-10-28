@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
    return GetMaterialApp(
-      initialRoute: Routes.mainMenu,
+      initialRoute: Routes.menuDrawer,
       getPages: Routes.mypages,
     );
   }
