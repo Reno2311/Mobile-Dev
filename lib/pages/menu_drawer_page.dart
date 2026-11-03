@@ -12,7 +12,7 @@ class MenuDrawerPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Menu Nav Drawer"),
+        title: const Text("Menu Nav"),
         backgroundColor: Colors.black,
         foregroundColor: Colors.white,
       ),
