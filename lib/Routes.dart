@@ -4,6 +4,7 @@ import 'package:flutter_application_3/pages/registration_pages.dart';
 import 'package:flutter_application_3/pages/detail_produk_pages.dart';
 import 'package:flutter_application_3/pages/main_menu_page.dart';
 import 'package:flutter_application_3/pages/menu_drawer_page.dart';
+import 'package:flutter_application_3/pages/login_clone_fix.dart';
 import 'package:get/get.dart';
 
 class Routes {
@@ -14,6 +15,7 @@ class Routes {
   static const String detailProduk = "/detailProduk";
   static const String mainMenu = "/mainMenu";
   static const String menuDrawer = "/menuDrawer";
+  static const String loginClone = "/loginClone";
 
   //dll login, kalkulator
 
@@ -25,6 +27,7 @@ class Routes {
     GetPage(name: detailProduk, page: ()=> DetailProductPages()),
     GetPage(name: mainMenu, page: ()=> MainMenuPage()),
     GetPage(name: menuDrawer, page: ()=> MenuDrawerPage()),
+    GetPage(name: loginClone, page: ()=> LoginCloneFix()),
     //others page here
   ];
 }

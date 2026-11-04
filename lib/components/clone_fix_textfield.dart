@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
 class CloneFixTextfield extends StatelessWidget {
+  final TextEditingController? controller;
   final String myhint;
   final double radius;
   final bool isObscure;
 
   const CloneFixTextfield({
     super.key,
+    this.controller,
     required this.myhint,
     required this.radius,
     this.isObscure = false,
@@ -15,9 +17,10 @@ class CloneFixTextfield extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      controller: controller,
       obscureText: isObscure,
       decoration: InputDecoration(
-        hintText: myhint,
+        hintText: myhint, 
         hintStyle: const TextStyle(color: Colors.grey, fontSize: 14),
         filled: true,
         fillColor: const Color(0xFFFAFAFA),
