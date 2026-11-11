@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_3/controller/list_product_controller.dart';
+import 'package:flutter_application_3/controller/user_controller.dart';
 import 'package:get/get.dart';
 import '../Routes.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
 
-  final controller = Get.put(ListProductController());
+  final controller = Get.put(UserController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text("Home - list produk"),
+        title: const Text("Home - List User"),
         centerTitle: true,
         backgroundColor: Colors.black,
         foregroundColor: Colors.white,
@@ -27,7 +27,7 @@ class HomePage extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
               child: Text(
-                "Daftar Produk",
+                "Daftar User",
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
             ),
@@ -39,9 +39,9 @@ class HomePage extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   physics: const AlwaysScrollableScrollPhysics(),
                   padding: const EdgeInsets.symmetric(horizontal: 4),
-                  itemCount: controller.produkList.length,
+                  itemCount: controller.userModel.length,
                   itemBuilder: (context, index) {
-                    final produk = controller.produkList[index];
+                    final user = controller.userModel[index];
                     return SizedBox(
                       width: 160,
                       child: Card(
@@ -59,15 +59,15 @@ class HomePage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(12),
                           onTap: () {
                             Get.toNamed(
-                              Routes.detailProduk,
+                              Routes.detailUser,
                               arguments: {
-                                'namaProduk': produk.namaProduk,
-                                'harga': produk.harga,
-                                'description': produk.description,
-                                'imageProduk': produk.imageProduk,
-                                'reviews': produk.reviews,
-                                'rating': produk.rating,
-                                'namaToko': produk.namaToko,
+                                'name': user.name,
+                                'username': user.username,
+                                'email': user.email,
+                                'phone': user.phone,
+                                'website': user.website,
+                                'city': user.address.city,
+                                'company': user.company.name,
                               },
                             );
                           },
@@ -79,7 +79,7 @@ class HomePage extends StatelessWidget {
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
                                   child: Image.network(
-                                    produk.imageProduk,
+                                    'https://picsum.photos/seed/${user.id}/200',
                                     width: double.infinity,
                                     height: 100,
                                     fit: BoxFit.cover,
@@ -87,7 +87,7 @@ class HomePage extends StatelessWidget {
                                 ),
                                 const SizedBox(height: 8),
                                 Text(
-                                  produk.namaProduk,
+                                  user.name,
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
                                   style: const TextStyle(
@@ -98,7 +98,9 @@ class HomePage extends StatelessWidget {
                                 ),
                                 const SizedBox(height: 4),
                                 Text(
-                                  'Rp ${produk.harga}',
+                                  user.email,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
                                   style: const TextStyle(
                                     color: Colors.black87,
                                     fontSize: 12,

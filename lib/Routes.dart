@@ -5,6 +5,8 @@ import 'package:flutter_application_3/pages/detail_produk_pages.dart';
 import 'package:flutter_application_3/pages/main_menu_page.dart';
 import 'package:flutter_application_3/pages/menu_drawer_page.dart';
 import 'package:flutter_application_3/pages/login_clone_fix.dart';
+import 'package:flutter_application_3/pages/list_user_pages.dart';
+import 'package:flutter_application_3/pages/detail_user_page.dart';
 import 'package:get/get.dart';
 
 class Routes {
@@ -16,7 +18,8 @@ class Routes {
   static const String mainMenu = "/mainMenu";
   static const String menuDrawer = "/menuDrawer";
   static const String loginClone = "/loginClone";
-
+  static const String listUser = "/listUser";
+  static const String detailUser = "/detailUser";
   //dll login, kalkulator
 
   //tampung ke dalam array yang akan kita pasang ke main dart
@@ -28,6 +31,8 @@ class Routes {
     GetPage(name: mainMenu, page: ()=> MainMenuPage()),
     GetPage(name: menuDrawer, page: ()=> MenuDrawerPage()),
     GetPage(name: loginClone, page: ()=> LoginCloneFix()),
+    GetPage(name: listUser, page: ()=> ListUserPage()),
+    GetPage(name: detailUser, page: ()=> DetailUserPage()),
     //others page here
   ];
 }

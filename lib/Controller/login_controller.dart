@@ -3,6 +3,7 @@ import 'package:flutter_application_3/Routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
+import 'package:flutter_application_3/models/login_model.dart';
 
 
 class LoginController extends GetxController{
@@ -11,7 +12,8 @@ class LoginController extends GetxController{
     TextEditingController txtPassword = TextEditingController();
 
     var isLoading = false.obs;
-
+    
+    var loginModel = Rxn<LoginModel>();
     //method hit API
     void login() async{
       if(txtUsername.text.toString().isEmpty || txtPassword.text.toString().isEmpty){
@@ -30,12 +32,14 @@ class LoginController extends GetxController{
           isLoading.value = false;
           if(response.statusCode == 200){
             //ambil json pindah ke main menu
-            final data = jsonDecode(response.body);
-            if(data['status'] == true){
-              Get.snackbar("Berhasil", data['message']);
+           loginModel.value = loginModelFromJson(response.body);
+
+            if (loginModel.value?.status == true) {
+            Get.snackbar("Berhasil", "${loginModel.value?.message}");
               Get.offNamed(Routes.menuDrawer);
+              
             }else{
-              Get.snackbar("Gagal", data['message']); 
+              Get.snackbar("Gagal", "${loginModel.value?.message}"); 
             }
           }else{
             Get.snackbar("Error", "Cek Internet Connection");
